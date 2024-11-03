@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://igbs.io
+
+# Sitemaps
+Sitemap: https://igbs.io/sitemap.xml
