@@ -11,24 +11,27 @@ const Footer = () => {
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
-                  <Image
-                    src="/images/logo/logo-2.svg"
-                    alt="logo"
-                    className="w-full dark:hidden"
-                    width={140}
-                    height={30}
-                  />
-                  <Image
-                    src="/images/logo/logo.svg"
-                    alt="logo"
-                    className="hidden w-full dark:block"
-                    width={140}
-                    height={30}
-                  />
+                  <div className="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-8 w-8 mr-2 text-black dark:text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M18.364 8.636a9 9 0 010 12.728M5.636 15.364a9 9 0 0112.728 0"
+                      />
+                    </svg>
+                    <span className="text-3xl font-bold text-black dark:text-white">IGBS</span>
+                  </div>
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Integer lobortis.
+                Your trusted partner in providing innovative business solutions. We specialize in optimizing operations and enhancing efficiency for organizations of all sizes.
+
                 </p>
                 <div className="flex items-center">
                   <a
@@ -125,10 +128,10 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/blog"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Pricing
+                      Services
                     </Link>
                   </li>
                   <li>
@@ -154,7 +157,7 @@ const Footer = () => {
                       href="/"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      TOS
+                      Terms Of Service
                     </Link>
                   </li>
                   <li>
@@ -167,10 +170,10 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/"
+                      href="/contact"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      Refund Policy
+                      Contact Us
                     </Link>
                   </li>
                 </ul>
@@ -204,7 +207,7 @@ const Footer = () => {
                       href="/about"
                       className="mb-4 inline-block text-base text-body-color duration-300 hover:text-primary dark:text-body-color-dark dark:hover:text-primary"
                     >
-                      About
+                      Call Us
                     </Link>
                   </li>
                 </ul>
@@ -215,23 +218,23 @@ const Footer = () => {
           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
             <p className="text-center text-base text-body-color dark:text-white">
-              Template by{" "}
+              Created with by{" "}
               <a
-                href="http://uideck.com"
+                href="http://igbs.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
               >
-                UIdeck
+                Infinity Global Business Solutions
               </a>{" "}
               and{" "}
               <a
-                href="https://nextjstemplates.com"
+                href="https://capitalhub.igbs.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary"
               >
-                Next.js Templates
+                CapitalHub - EWA Platform
               </a>
             </p>
           </div>

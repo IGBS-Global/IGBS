@@ -16,24 +16,20 @@ const Header = () => {
   // Sticky Navbar
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
-    if (window.scrollY >= 80) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
+    setSticky(window.scrollY >= 80);
   };
+
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
-  });
+    return () => {
+      window.removeEventListener("scroll", handleStickyNavbar); // Cleanup listener
+    };
+  }, []); // Add empty dependency array to run effect only on mount
 
-  // submenu handler
+  // Submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(-1);
-    } else {
-      setOpenIndex(index);
-    }
+  const handleSubmenu = (index: number) => {
+    setOpenIndex(openIndex === index ? -1 : index);
   };
 
   const usePathName = usePathname();
@@ -52,24 +48,25 @@ const Header = () => {
             <div className="w-60 max-w-full px-4 xl:mr-12">
               <Link
                 href="/"
-                className={`header-logo block w-full ${
-                  sticky ? "py-5 lg:py-2" : "py-8"
-                } `}
+                className={`header-logo block w-full ${sticky ? "py-5 lg:py-2" : "py-8"}`}
               >
-                <Image
-                  src="/images/logo/logo-2.svg"
-                  alt="logo"
-                  width={140}
-                  height={30}
-                  className="w-full dark:hidden"
-                />
-                <Image
-                  src="/images/logo/logo.svg"
-                  alt="logo"
-                  width={140}
-                  height={30}
-                  className="hidden w-full dark:block"
-                />
+                <div className="flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 mr-2 text-black dark:text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M18.364 8.636a9 9 0 010 12.728M5.636 15.364a9 9 0 0112.728 0"
+                    />
+                  </svg>
+                  <span className="text-3xl font-bold text-black dark:text-white">IGBS</span>
+                </div>
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
@@ -82,17 +79,17 @@ const Header = () => {
                 >
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? " top-[7px] rotate-45" : " "
+                      navbarOpen ? " top-[7px] rotate-45" : ""
                     }`}
                   />
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? "opacity-0 " : " "
+                      navbarOpen ? "opacity-0" : ""
                     }`}
                   />
                   <span
                     className={`relative my-1.5 block h-0.5 w-[30px] bg-black transition-all duration-300 dark:bg-white ${
-                      navbarOpen ? " top-[-8px] -rotate-45" : " "
+                      navbarOpen ? " top-[-8px] -rotate-45" : ""
                     }`}
                   />
                 </button>
@@ -141,14 +138,16 @@ const Header = () => {
                                 openIndex === index ? "block" : "hidden"
                               }`}
                             >
-                              {menuItem.submenu.map((submenuItem, index) => (
-                                <Link
-                                  href={submenuItem.path}
-                                  key={index}
-                                  className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
-                                >
-                                  {submenuItem.title}
-                                </Link>
+                              {menuItem.submenu && menuItem.submenu.map((submenuItem, subIndex) => (
+                                submenuItem.path ? (
+                                  <Link
+                                    href={submenuItem.path}
+                                    key={subIndex}
+                                    className="block rounded py-2.5 text-sm text-dark hover:text-primary dark:text-white/70 dark:hover:text-white lg:px-3"
+                                  >
+                                    {submenuItem.title}
+                                  </Link>
+                                ) : null
                               ))}
                             </div>
                           </>
@@ -159,18 +158,12 @@ const Header = () => {
                 </nav>
               </div>
               <div className="flex items-center justify-end pr-16 lg:pr-0">
-                <Link
-                  href="/signin"
-                  className="hidden px-7 py-3 text-base font-medium text-dark hover:opacity-70 dark:text-white md:block"
-                >
-                  Sign In
-                </Link>
-                <Link
-                  href="/signup"
-                  className="ease-in-up shadow-btn hover:shadow-btn-hover hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9"
-                >
-                  Sign Up
-                </Link>
+                <span className="hidden px-7 py-3 text-base font-medium text-dark cursor-not-allowed dark:text-white md:block">
+                  Waitlist
+                </span>
+                <span className="ease-in-up shadow-btn hover:shadow-btn-hover hidden rounded-sm bg-primary px-8 py-3 text-base font-medium text-white transition duration-300 hover:bg-opacity-90 md:block md:px-9 lg:px-6 xl:px-9 cursor-not-allowed">
+                  For Employers
+                </span>
                 <div>
                   <ThemeToggler />
                 </div>

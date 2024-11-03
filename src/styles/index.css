@@ -30,4 +30,29 @@
   input#checkboxLabel:checked ~ .box span {
     @apply opacity-100;
   }
+
+  /* Add this CSS to your styles file */
+  .floating-call-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px; /* Space between ScrollToTop and Call Icon */
+  }
+  
+  .glowing-icon {
+    color: #007bff; /* Blue color */
+    animation: glow 1.5s infinite; /* Glowing animation */
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px #007bff, 0 0 10px #007bff, 0 0 15px #007bff, 0 0 20px #007bff;
+    }
+    50% {
+      text-shadow: 0 0 10px #007bff, 0 0 20px #007bff, 0 0 30px #007bff, 0 0 40px #007bff;
+    }
+    100% {
+      text-shadow: 0 0 5px #007bff, 0 0 10px #007bff, 0 0 15px #007bff, 0 0 20px #007bff;
+    }
+  }
 }

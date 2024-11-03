@@ -10,8 +10,8 @@ const brandsData: Brand[] = [
   },
   {
     id: 1,
-    name: "UIdeck",
-    href: "https://uideck.com",
+    name: "IGBS & CapitalHub",
+    href: "https://capitalhub.igbs.io.",
     image: "/images/brands/uideck.svg",
     imageLight: "/images/brands/uideck-light.svg",
   },
@@ -38,9 +38,9 @@ const brandsData: Brand[] = [
   },
   {
     id: 5,
-    name: "PlainAdmin",
+    name: "Flutterwave",
     href: "https://plainadmin.com",
-    image: "/images/brands/plainadmin.svg",
+    image: "/images/brands/flutterwave.svg",
     imageLight: "/images/brands/plainadmin-light.svg",
   },
 ];

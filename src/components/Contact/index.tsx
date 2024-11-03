@@ -1,4 +1,6 @@
 import NewsLatterBox from "./NewsLatterBox";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const Contact = () => {
   return (
@@ -78,6 +80,12 @@ const Contact = () => {
             <NewsLatterBox />
           </div>
         </div>
+      </div>
+      {/* Floating Call Button */}
+      <div className="floating-call-button">
+        <a href="tel:+1234567890">
+          <FontAwesomeIcon icon={faPhone} size="2x" className="glowing-icon" />
+        </a>
       </div>
     </section>
   );

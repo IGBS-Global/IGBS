@@ -14,7 +14,7 @@ const Video = () => {
       <div className="container">
         <SectionTitle
           title="We are ready to help"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="Whether you need to optimize your operations, enhance your digital presence, or revolutionize your business processes, we have the expertise and resources to make it happen."
           center
           mb="80px"
         />
@@ -54,7 +54,7 @@ const Video = () => {
         autoplay={true}
         start={true}
         isOpen={isOpen}
-        videoId="L61p2uyiMSo"
+        videoId="dmZ1Q7g2MnE"
         onClose={() => setOpen(false)}
       />
 
